@@ -9,8 +9,7 @@ if [ "$1" == "deploy" ];then
   docker-compose build
   docker-compose up -d
 elif [ "$1" == "publish" ];then
-  dockerImageId=`docker images | grep deploy_web | grep latest | awk -F " " '{print $3}'`
   docker tag deploy_web onedaywillcome/fetchr-sample-springboot:latest
   docker login -u $DOCKER_USER -p $DOCKER_PASS
-  docker push onedaywillcome/fetchr-sample:latest
+  docker push onedaywillcome/fetchr-sample-springboot:latest
 fi
