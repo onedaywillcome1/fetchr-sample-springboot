@@ -17,3 +17,4 @@
 </build>
 
 ```
+* added application.properties which includes **server.port=8090**
