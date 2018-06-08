@@ -1,0 +1,21 @@
+---
+- hosts: appserver
+  gather_facts: yes
+  
+  tasks:
+    - name: Copy Compose Setup
+      copy: src=./docker-compose.yml dest=/home/vagrant/docker-compose.yml
+
+    - name: pull latest docker image
+      command: docker pull onedaywillcome/fetchr-sample-springboot:latest
+
+    - name: change the tag
+      command: docker tag onedaywillcome/fetchr-sample-springboot fetchr-sample-springboot
+
+    - name: kill latest running container
+      command: docker-compose kill
+
+    - name: run docker-compose
+      command: docker-compose up -d
+      args:
+        chdir: /home/vagrant
