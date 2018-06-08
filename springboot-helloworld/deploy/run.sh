@@ -11,5 +11,5 @@ elif [ "$1" == "publish" ];then
   docker login -u $DOCKER_USER -p $DOCKER_PASS
   docker push onedaywillcome/fetchr-sample-springboot:latest
 elif [ "$1" == "deploy" ];then
-  ansible-playbook -i hosts $PWD/fetchr-sample-springboot/springboot-helloworld/deploy/playbook.yml
+  ansible-playbook -i $PWD/fetchr-sample-springboot/springboot-helloworld/deploy/hosts $PWD/fetchr-sample-springboot/springboot-helloworld/deploy/playbook.yml
 fi
