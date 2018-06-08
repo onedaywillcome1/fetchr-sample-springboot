@@ -2,5 +2,6 @@ version: '3'
 services:
   web:
     image: fetchr-sample-springboot:latest
+    restart: always
     ports:
      - "8090:8090"
