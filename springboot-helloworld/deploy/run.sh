@@ -7,7 +7,7 @@ if [ "$1" == "build_image" ];then
   cd $PWD/fetchr-sample-springboot/springboot-helloworld/deploy
   docker build -t fetchr-sample-springboot:latest .
 elif [ "$1" == "publish" ];then
-  docker tag deploy_web onedaywillcome/fetchr-sample-springboot:latest
+  docker tag fetchr-sample-springboot onedaywillcome/fetchr-sample-springboot:latest
   docker login -u $DOCKER_USER -p $DOCKER_PASS
   docker push onedaywillcome/fetchr-sample-springboot:latest
 elif [ "$1" == "deploy" ];then
